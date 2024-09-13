@@ -1,0 +1,22 @@
+<template>
+    <lightning-card title="Accounts and Contacts">
+        <template if:true={accounts}>
+            <template for:each={accounts} for:item="account">
+                <div key={account.accRecord.Id} class="slds-box slds-box_x-small slds-m-around_small">
+                    <h3>{account.accRecord.Name}</h3>
+                    <div>
+                        <ul>
+                            <h3><b>Contact Records:</b></h3>
+                            <template for:each={account.conList} for:item="contact">
+                                <li key={contact.Id}>{contact.FirstName} {contact.LastName}</li>
+                            </template>
+                        </ul>
+                    </div>
+                </div>
+            </template>
+        </template>
+        <template if:false={accounts}>
+            <p>No accounts found.</p>
+        </template>
+    </lightning-card>
+</template>

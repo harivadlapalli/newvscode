@@ -1,0 +1,13 @@
+<template>
+    <lightning-card title="Account Records">
+        <template if:true={accountNames}>
+            <div>
+            <template for:each={accountNames} for:item="account">
+                <div key = {account.Id} align = "center">
+                    <p> {account.Name}</p>
+                </div>
+            </template>
+        </div>
+        </template>
+    </lightning-card>
+</template>
