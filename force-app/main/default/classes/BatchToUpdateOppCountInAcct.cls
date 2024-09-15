@@ -1,4 +1,4 @@
-public class BatchToUpdateOppCountInAcct implements Database.Batchable<sObject>{
+/*public class BatchToUpdateOppCountInAcct implements Database.Batchable<sObject>{
     public Static Database.QueryLocator start(Database.BatchableContext BC){
         return Database.getQueryLocator([select Id,Name,(select Id,Name from Opportunities) from Account]);
     }
@@ -13,4 +13,4 @@ public class BatchToUpdateOppCountInAcct implements Database.Batchable<sObject>{
      public static void finish(Database.BatchableContext BC){
         System.debug('Operation Completed Successfullyx`');
     }
-}
+}*/

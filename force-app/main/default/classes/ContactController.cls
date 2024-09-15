@@ -1,10 +1,6 @@
 public with sharing class ContactController {
     @AuraEnabled(cacheable=true)
-    public static list<Contact> getContacts(){
-        try {
-            return [select FirstName,LastName,Email from Contact];
-        } catch (Exception e) {
-            throw new AuraHandledException(e.getMessage());
-        }
+    public static List<Contact> getContactsByAccountId(Id accountId){
+        return [select id,AccountId,name from Contact where AccountId =:accountId];
     }
 }
