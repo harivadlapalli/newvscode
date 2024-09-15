@@ -2,7 +2,7 @@ import { LightningElement, track, wire } from 'lwc';
 import LastName from '@salesforce/schema/Contact.LastName';
 import FirstName from '@salesforce/schema/Contact.FirstName';
 import Email from '@salesforce/schema/Contact.Email';
-import getContacts from '@salesforce/apex/ContactController.getContacts';
+import getContacts from '@salesforce/apex/CustomContactController.getContacts';
 import { reduceErrors } from 'c/ldsUtils';
 
 const COLUMNS =[{label : 'First Name', fieldName:FirstName.fieldApiName, type: 'text'},

@@ -1,5 +1,5 @@
-import { createElement } from 'lwc';
-import Lwc1 from 'c/lwc1';
+//import { createElement } from 'lwc';
+import Lwc1 from 'c/lwcMainComponent';
 
 describe('c-lwc1', () => {
     afterEach(() => {
