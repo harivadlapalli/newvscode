@@ -1,0 +1,49 @@
+<!-- sldsValidatorIgnore -->
+                  
+<template>
+    <lightning-card title="Accounts">
+        <div slot="actions">
+            <lightning-button label="Delete Selected" onclick={handleDelete} class="slds-m-around_x-large"></lightning-button>
+        <!-- sldsValidatorIgnoreNextLine -->
+        </div>
+        <lightning-datatable
+            key-field="Id"
+            data={accounts}
+            columns={accountColumns}
+            selected-rows={selectedAccountIds}
+            onrowselection={handleRowSelection}   
+            onrowaction={handleRowAction}>
+        </lightning-datatable>
+    </lightning-card>
+
+    <template if:true={isDeleteModalOpen}>
+        <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <lightning-button-icon icon-name="utility:close" alternative-text="Close" onclick={closeDeleteModal} class="slds-modal__close"></lightning-button-icon>
+                    <h2 class="slds-text-heading_medium">Confirm Delete</h2>
+                </header>                                                       
+                <div class="slds-modal__content slds-p-around_medium">
+                    <p>Are you sure you want to delete the selected account(s)?</p>
+                </div>
+                <footer class="slds-modal__footer">
+                    <lightning-button label="Cancel" onclick={closeDeleteModal}></lightning-button>
+                    <lightning-button variant="destructive" label="Delete" onclick={confirmDelete}></lightning-button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+
+    <!-- Related Contacts Section -->
+    <template if:true={showContacts}>
+        <lightning-card title="Related Contacts">
+            <lightning-button label="Close Contacts" onclick={handleCloseContacts} class="slds-m-bottom_small"></lightning-button>
+            <lightning-datatable
+                key-field="Id"
+                data={contacts}
+                columns={contactColumns}>
+            </lightning-datatable>
+        </lightning-card>
+    </template>
+</template>
